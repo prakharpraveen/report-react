@@ -67,7 +67,7 @@ const TableView = () => {
         const _id = newData._id;
         try {
             const resp = await axios.put(`http://localhost:5000/scripts/${_id}`, newData);
-            setEditScript(true);
+            setEditScript(!editScript);
             console.log(resp.data);
         } catch (err) {
             console.error("Error dusing editing", err);
@@ -78,8 +78,8 @@ const TableView = () => {
         const _id = oldData._id;
         try {
             const resp = await axios.delete(`http://localhost:5000/scripts/${_id}`);
+            setDeleteScript(!deleteScript);
             console.log(resp.data);
-            setDeleteScript(true);
         } catch (err) {
             console.error("Error dusing editing", err);
         }

@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar({ updateUser }) {
     const classes = useStyles();
     const [showComponent, setShowComponent] = useState("home")
 
@@ -37,6 +37,10 @@ export default function ButtonAppBar() {
         setShowComponent("chartView");
     }
 
+    const handleLogout = () => {
+        updateUser({})
+    }
+
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -46,8 +50,8 @@ export default function ButtonAppBar() {
                     </Typography>
                     <Button onClick={handleHome} color="inherit">Home</Button>
                     <Button onClick={handleTableView} color="inherit">Table View</Button>
-                    {/* <Button onClick={handleChartView} color="inherit">Chart View</Button>
-                    <Button className={classes.loginButton} color="inherit">Login</Button> */}
+                    {/* <Button onClick={handleChartView} color="inherit">Chart View</Button> */}
+                    <Button onClick={handleLogout} className={classes.loginButton} color="inherit">Logout</Button>
                 </Toolbar>
             </AppBar>
             {(showComponent === "home") &&

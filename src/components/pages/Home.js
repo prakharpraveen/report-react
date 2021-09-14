@@ -159,6 +159,7 @@ const Home = () => {
                     <Button
                         variant="contained"
                         style={{ margin: '5px' }}
+                        disabled={(script.length <= 1 || totalPandL === 0)}
                         onClick={handleCancel}>
                         Cancel
                     </Button>

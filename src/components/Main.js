@@ -1,10 +1,10 @@
 import React from 'react';
-import ButtonAppBar from './ButtonAppBar';
+import ButtonAppBar from './pages/ButtonAppBar';
 
-const Main = () => {
+const Main = ({updateUser}) => {
     return (
         <div>
-            <ButtonAppBar />
+            <ButtonAppBar updateUser={updateUser}/>
         </div>
     )
 }
